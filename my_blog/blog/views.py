@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from .models import Post
 
@@ -9,10 +9,7 @@ def post_list(request):
 
 
 def post_detail(request, id_):
-    try:
-        post = Post.published.get(id=id_)
-    except Post.DoesNotExist:
-        raise Http404
+    post = get_object_or_404(Post, id=id_, status=Post.status.PUBLISHED)
 
     return render(request, 'blog/post/list-detail.html', {'post': post})
 
