@@ -10,6 +10,6 @@ def post_list(request):
 def post_detail(request, id_):
     post = get_object_or_404(Post, id=id_, status=Post.status.PUBLISHED)
 
-    return render(request, 'blog/post/list-detail.html', {'post': post})
+    return render(request, 'blog/post/detail.html', {'post': post})
 
 # Create your views here.
