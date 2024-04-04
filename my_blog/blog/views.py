@@ -45,7 +45,7 @@ def post_detail(request, year, month, day, post):
         publish__day=day
     )
     # Список активных комментариев к этому посту
-    comments = Post.comments.filter(active=True)
+    comments = post.comments.filter(active=True)
     # Форма для комментирования пользователями
     form = CommentForm()
 
