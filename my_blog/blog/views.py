@@ -37,7 +37,7 @@ def post_list(request, tag_slug=None):
         # Если page_number находится вне диапазона, то
         # выдать последнюю страницу
         posts = paginator.page(paginator.num_pages)
-    return render(request, 'blog/post/list.html', {'posts': posts})
+    return render(request, 'blog/post/list.html', {'posts': posts, 'tag': tag})
 
 
 def post_detail(request, year, month, day, post):
